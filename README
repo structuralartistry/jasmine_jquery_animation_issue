@@ -1,0 +1,24 @@
+This project is to demonstrate an apparent bug in testing jquery 'show' with animation.
+
+
+TODO: try adding sinon timer first
+        #clock = sinon.useFakeTimers()
+
+        $('#travel_card_leading_bme_strategy').mousedown()
+        expect($('#bme_strategy_selector')).toBeVisible()
+        $('#select_bme_strategy_e').mousedown()
+
+        expect($('#bme_strategy_selector')).toBeHidden()
+        $('#travel_card_second_bme_strategy').mousedown()
+
+        # if show manually it works
+        #$('#bme_strategy_selector').show()
+        # but not if slow
+        #$('#bme_strategy_selector').show('fast')
+
+        #clock.tick(5000)
+
+        # fails here... so question is why does it fail the second time?
+        expect($('#bme_strategy_selector')).toBeVisible()
+
+        #clock.restore()
